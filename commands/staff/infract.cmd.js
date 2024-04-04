@@ -60,6 +60,15 @@ export async function execute(interaction, client) {
     },
   ];
 
+  const infractedUserAvatar = user.displayAvatarURL();
+  const logEmbed = {
+    title: `Member Infracted`,
+    thumbnail: { url: infractedUserAvatar },
+    description: `> ${interaction.user} has infracted ${user}\n> Reason: **${reason}**\n> Evidence: **\`\`${evidence}\`\`**.`,
+    timestamp: interaction.createdAt,
+    color: client.settings.color
+  };
+
   const modlog_save = new modlog({
     recipient: user.id,
     moderator: interaction.user.id,
@@ -77,4 +86,9 @@ export async function execute(interaction, client) {
   await client.users.send(user.id, {
     embeds: response,
   })
+  try {
+    await client.channels.cache.get(client.settings.log_channel).send({ embeds: [logEmbed] });
+  } catch (e) {
+    console.error(e);
+  }
 }
