@@ -19,7 +19,9 @@ config();
 
         emergency_role: `1225491981220712599`,
 
-        admin_role: `1225483987024351262`
+        admin_role: `1225483987024351262`,
+
+        autoRoles: [`1225483981148131390`]
     };
     await client.init();
 })();

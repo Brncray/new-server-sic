@@ -53,6 +53,11 @@ export async function execute(interaction, client) {
           value: `${vehicles.length}`,
           inline: true,
         },
+        {
+          name: "License", 
+          value: tickets.length > 4 ? "Suspended" : "Valid",
+          inline: true,
+        }
       ],
       color: client.settings.color,
     },
