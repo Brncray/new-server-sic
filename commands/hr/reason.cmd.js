@@ -4,7 +4,7 @@ import { modlog } from "../../data/mongodb.js";
 export const data = {
   name: "reason",
   type: 1, // u got 3 types, 1 is reg cmd, 2 is msg app, 3 is user app
-  description: "strike a staff member",
+  description: "change a case reason",
   options: [
     {
       name: "case",
