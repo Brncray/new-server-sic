@@ -16,7 +16,7 @@ export const data = {
 export async function execute(interaction, client) {
   await interaction.deferReply({ ephemeral: false });
   if (interaction.member.id != "539213950688952320") {
-    return interaction.reply({
+    return interaction.editReply({
       content: "You do not have the proper permissions to use this command.",
       ephemeral: true,
     });
