@@ -15,9 +15,10 @@ export async function execute(message, client) {
     if (!highCommandRole) return;
     const highCommandMembers = message.guild.members.cache.filter(m => m.roles.cache.has(highCommandRole.id));
     const mentionedMembers = message.mentions.members;
-    if (mentionedMembers.size > 0) {
-        await message.reply({content: "Please do not mention high command members in this channel."})
-        return;
+    for (const member of mentionedMembers) {
+        if (highCommandMembers.has(member[0])) {
+            await message.reply({ content: "You cannot mention a High Command member."});
+        }
     }
 
 }
