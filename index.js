@@ -21,7 +21,7 @@ config();
 
         admin_role: `1225483987024351262`,
 
-        autoRoles: [`1225483981148131390`]
+        autoRoles: []
     };
     await client.init();
 })();
